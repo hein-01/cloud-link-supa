@@ -27,6 +27,7 @@ import SalesWorkflows from "@/pages/sales-workflows";
 import ReplitToVercel from "@/pages/replit-to-vercel";
 import LovablePrompts from "@/pages/lovable-prompts";
 import FlutterWebView from "@/pages/flutter-webview";
+import OdooHosting from "@/pages/odoo-hosting";
 import Auth from "@/pages/auth";
 
 function AppSidebar({ user }: { user: any }) {
@@ -84,7 +85,7 @@ function AppSidebar({ user }: { user: any }) {
           <SidebarMenuItem>
             <SidebarMenuButton 
               onClick={() => setTechWorkflowsOpen(!techWorkflowsOpen)}
-              isActive={location === "/replit-to-vercel" || location === "/lovable-prompts" || location === "/flutter-webview"}
+              isActive={location === "/replit-to-vercel" || location === "/lovable-prompts" || location === "/flutter-webview" || location === "/odoo-hosting"}
             >
               <Settings />
               <span>Tech Workflows</span>
@@ -110,6 +111,13 @@ function AppSidebar({ user }: { user: any }) {
                   <SidebarMenuSubButton asChild isActive={location === "/flutter-webview"}>
                     <Link href="/flutter-webview">
                       <span>Flutter Web View App</span>
+                    </Link>
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+                <SidebarMenuSubItem>
+                  <SidebarMenuSubButton asChild isActive={location === "/odoo-hosting"}>
+                    <Link href="/odoo-hosting">
+                      <span>Odoo Hosting</span>
                     </Link>
                   </SidebarMenuSubButton>
                 </SidebarMenuSubItem>
@@ -185,6 +193,9 @@ function Router() {
       </Route>
       <Route path="/flutter-webview">
         {() => <ProtectedRoute component={FlutterWebView} />}
+      </Route>
+      <Route path="/odoo-hosting">
+        {() => <ProtectedRoute component={OdooHosting} />}
       </Route>
       <Route component={NotFound} />
     </Switch>
