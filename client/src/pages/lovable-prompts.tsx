@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Copy, CheckCircle, FileText, Save, Check, X } from "lucide-react";
+import { Copy, CheckCircle, FileText, Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -277,12 +277,10 @@ export default function LovablePrompts() {
                           </>
                         ) : promptSaved ? (
                           <>
-                            <CheckCircle className="h-3 w-3 mr-1 text-green-600" />
                             Saved
                           </>
                         ) : (
                           <>
-                            <Save className="h-3 w-3 mr-1" />
                             Save
                           </>
                         )}
