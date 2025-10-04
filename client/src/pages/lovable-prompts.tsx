@@ -61,13 +61,6 @@ export default function LovablePrompts() {
     const newPromptsCopied = [...promptsCopied];
     newPromptsCopied[index] = copied;
     setPromptsCopied(newPromptsCopied);
-    if (copied) {
-      setTimeout(() => {
-        const resetCopied = [...newPromptsCopied];
-        resetCopied[index] = false;
-        setPromptsCopied(resetCopied);
-      }, 2000);
-    }
   };
 
   const startEditingLabel = (index: number) => {
