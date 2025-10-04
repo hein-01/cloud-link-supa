@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Copy, CheckCircle, FileText, Save, Edit2, Check, X } from "lucide-react";
+import { Copy, CheckCircle, FileText, Save, Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -226,20 +226,22 @@ export default function LovablePrompts() {
                           }}
                         />
                         <Button
-                          variant="ghost"
+                          variant="default"
                           size="sm"
                           onClick={() => saveLabel(promptIndex)}
-                          className="h-7 w-7 p-0"
+                          className="h-7 px-2"
                         >
-                          <Check className="h-3 w-3 text-green-600" />
+                          <Check className="h-3 w-3 mr-1" />
+                          Save
                         </Button>
                         <Button
-                          variant="ghost"
+                          variant="secondary"
                           size="sm"
                           onClick={cancelEditingLabel}
-                          className="h-7 w-7 p-0"
+                          className="h-7 px-2"
                         >
-                          <X className="h-3 w-3 text-gray-500" />
+                          <X className="h-3 w-3 mr-1" />
+                          Cancel
                         </Button>
                       </>
                     ) : (
@@ -248,12 +250,11 @@ export default function LovablePrompts() {
                           {promptLabels[promptIndex] || `Prompt ${promptNum}`}
                         </Label>
                         <Button
-                          variant="ghost"
+                          variant="secondary"
                           size="sm"
                           onClick={() => startEditingLabel(promptIndex)}
                           className="h-6 px-2 text-xs"
                         >
-                          <Edit2 className="h-3 w-3 mr-1" />
                           Edit
                         </Button>
                       </>
@@ -270,11 +271,11 @@ export default function LovablePrompts() {
                     />
                     <div className="absolute right-2 bottom-2 flex gap-1">
                       <Button
-                        variant="outline"
+                        variant="default"
                         size="sm"
                         onClick={() => savePrompt(promptIndex)}
                         disabled={promptSaving}
-                        className="h-8 px-3 border-gray-300 hover:bg-gray-50"
+                        className="h-8 px-3"
                       >
                         {promptSaving ? (
                           <>
@@ -294,13 +295,13 @@ export default function LovablePrompts() {
                         )}
                       </Button>
                       <Button
-                        variant="outline"
+                        variant="secondary"
                         size="sm"
                         onClick={() => {
                           navigator.clipboard.writeText(promptValue);
                           setPromptCopied(promptIndex, true);
                         }}
-                        className="h-8 px-3 border-gray-300 hover:bg-gray-50"
+                        className="h-8 px-3"
                       >
                         {promptCopied ? (
                           <>
