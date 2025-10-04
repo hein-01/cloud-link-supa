@@ -9,13 +9,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LovablePrompts() {
-  const [prompts, setPrompts] = useState<string[]>(Array(10).fill(""));
-  const [promptLabels, setPromptLabels] = useState<string[]>(Array(10).fill(""));
+  const [prompts, setPrompts] = useState<string[]>(Array(20).fill(""));
+  const [promptLabels, setPromptLabels] = useState<string[]>(Array(20).fill(""));
   const [editingLabel, setEditingLabel] = useState<number | null>(null);
   const [tempLabel, setTempLabel] = useState("");
-  const [promptsCopied, setPromptsCopied] = useState<boolean[]>(Array(10).fill(false));
-  const [promptsSaving, setPromptsSaving] = useState<boolean[]>(Array(10).fill(false));
-  const [promptsSaved, setPromptsSaved] = useState<boolean[]>(Array(10).fill(false));
+  const [promptsCopied, setPromptsCopied] = useState<boolean[]>(Array(20).fill(false));
+  const [promptsSaving, setPromptsSaving] = useState<boolean[]>(Array(20).fill(false));
+  const [promptsSaved, setPromptsSaved] = useState<boolean[]>(Array(20).fill(false));
   const { toast } = useToast();
 
   useEffect(() => {
@@ -38,10 +38,10 @@ export default function LovablePrompts() {
     }
 
     if (data) {
-      const loadedPrompts = Array(10).fill("");
-      const loadedLabels = Array(10).fill("");
+      const loadedPrompts = Array(20).fill("");
+      const loadedLabels = Array(20).fill("");
       data.forEach(prompt => {
-        if (prompt.prompt_index >= 1 && prompt.prompt_index <= 10) {
+        if (prompt.prompt_index >= 1 && prompt.prompt_index <= 20) {
           loadedPrompts[prompt.prompt_index - 1] = prompt.prompt_text;
           loadedLabels[prompt.prompt_index - 1] = prompt.prompt_label || "";
         }
@@ -203,7 +203,7 @@ export default function LovablePrompts() {
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((promptNum) => {
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((promptNum) => {
               const promptIndex = promptNum - 1;
               const promptValue = prompts[promptIndex];
               const promptCopied = promptsCopied[promptIndex];
